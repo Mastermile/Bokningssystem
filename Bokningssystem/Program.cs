@@ -56,11 +56,17 @@ class Grupprum : Lokal //Fylla i egenskaper, namn och kapacitet (kanske något m
 {
 
 }
-class NyBokning : IBookable //Klass metod för att göra ny bokning
+class NyBokning : IBookable//Klass metod för att göra ny bokning
 {
     public string Name;
-    public string Lokal; 
-    public DateTime Starttid;
-    public DateTime Sluttid;
+    public string Lokal;
+    public void StartTid()
+    {
 
+    }
+
+    public void SlutTid()
+    {
+
+    }
 }
