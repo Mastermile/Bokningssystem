@@ -11,6 +11,7 @@ namespace Bokningssystem
                 Console.WriteLine($"[1] Boka Sal");
                 Console.WriteLine($"[2] Bokningar");
                 Console.WriteLine($"[3] Lokaler");
+                Console.WriteLine($"[4] Ändra bokningar");
                 Console.ReadKey();
             }
         }
