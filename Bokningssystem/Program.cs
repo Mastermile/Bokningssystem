@@ -162,7 +162,7 @@ class Lokal : IBookable//Base class
                                 Console.WriteLine($"Start tid: {startTime}");
                                 Console.WriteLine($"Slut tid: {endTime}");
                                 Console.WriteLine($"Timmar bokat: {bokadTid.Hours}");
-                                
+/////////////////////////////////////////////////////////////////////////////////////////////                                   
                                 break;
                             }
                             else //endTime is before startTime or after closingTime
@@ -176,6 +176,7 @@ class Lokal : IBookable//Base class
                     Console.WriteLine();
                     Console.WriteLine("Tryck på valfri knapp för att gå vidare");
                     Console.ReadKey();
+//////////////////////////////////////////////////////////////////////////////////////////
                     break;
                 }
                 else //startTime is before openTime or at closingTime
