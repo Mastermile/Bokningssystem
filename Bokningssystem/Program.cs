@@ -22,6 +22,8 @@ namespace Bokningssystem
                 Console.WriteLine($"[4] Ändra bokning");
 
                 Console.WriteLine($"[5] lista alla bokningar");
+                
+                Console.WriteLine($"[6] Skapa ny lokal");
 
                 Console.WriteLine();
 
@@ -35,7 +37,7 @@ namespace Bokningssystem
                             //Metoden för att boka sal
                             
                             //tillfälliga tester
-                            Sal sal = new Sal();
+                            Sal sal = new Sal(14, "");
                             sal.BokaTid();
                             break;
 
@@ -59,6 +61,11 @@ namespace Bokningssystem
                             Console.WriteLine("Test case 5");
                             break;
 
+                        case "6":
+                            Lokal lokal = new Lokal();
+                            lokal.SkapaNyLokal();
+                            break;
+
                         case "0":
                             programIsRunning = false;
                             break;
@@ -72,9 +79,63 @@ namespace Bokningssystem
                     }
 
                 }
-                else Console.WriteLine("Vänligen välj ett en siffra (1-5) eller 0 för att avsluta");
+                else Console.WriteLine("Vänligen välj ett en siffra (1-6) eller 0 för att avsluta");
             
             }
+        }
+        public void SkapaNyLokal()
+        {
+            Console.WriteLine("Vilken typ av lokal vill du lägga till? (1-2).");
+
+            Console.WriteLine("[1]. Sal");
+            Console.WriteLine("[2]. Grupprum");
+            string input = Console.ReadLine();
+            if (int.TryParse(input, out int userChoice))
+            {
+                if (userChoice == 1)
+                {
+                    SkapaNySal();
+                }
+                else if (userChoice == 2)
+                {
+                    SkapaNyGrupprum();
+                }
+                else
+                {
+                    Console.WriteLine("Vänliga välj en siffra mellan (1-2)");
+                }
+            }
+        }
+        public void SkapaNySal()
+        {
+            Console.Write("Välj ett namn på salen:");
+            string inputNamn = Console.ReadLine();
+
+            Console.WriteLine("Ange hur många platser salen har: ");
+            int.TryParse(Console.ReadLine(), out int kapacitet);
+
+            if (!string.IsNullOrEmpty(inputNamn))
+            {
+                Sal sal = new Sal(kapacitet, inputNamn);
+            }
+            Console.WriteLine($"Din nya sal har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
+        }
+
+        public void SkapaNyGrupprum()
+        {
+            Console.Write("Välj ett namn på grupprummet:");
+            string inputNamn = Console.ReadLine();
+
+            Console.WriteLine("Ange hur många platser salen har: ");
+            int.TryParse(Console.ReadLine(), out int kapacitet);
+
+            if (!string.IsNullOrEmpty(inputNamn))
+            {
+                Grupprum grupprum = new Grupprum(kapacitet, inputNamn);
+                Console.WriteLine($"Ditt nya grupprum har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
+            }
+            else
+                Console.WriteLine("Något gick fel försök igen.");
         }
     }
 }
@@ -187,24 +248,94 @@ class Lokal : IBookable//Base class
         }
         
     }
+    public void SkapaNyLokal()
+    {
+        Console.WriteLine("Vilken typ av lokal vill du lägga till? (1-2).");
+
+        Console.WriteLine("[1]. Sal");
+        Console.WriteLine("[2]. Grupprum");
+        string input = Console.ReadLine();
+        if (int.TryParse(input, out int userChoice))
+        {
+            if (userChoice == 1)
+            {
+                SkapaNySal();
+            }
+            else if (userChoice == 2)
+            {
+                SkapaNyGrupprum();
+            }
+            else
+            {
+                Console.WriteLine("Vänliga välj en siffra mellan (1-2)");
+            }
+        }
+    }
+    public void SkapaNySal()
+    {
+        Console.Write("Välj ett namn på salen:");
+        string inputNamn = Console.ReadLine();
+
+        Console.WriteLine("Ange hur många platser salen har: ");
+        int.TryParse(Console.ReadLine(), out int kapacitet);
+
+        if (!string.IsNullOrEmpty(inputNamn))
+        {
+            Sal sal = new Sal(kapacitet, inputNamn);
+        }
+        Console.WriteLine($"Din nya sal har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
+    }
+
+    public void SkapaNyGrupprum()
+    {
+        Console.Write("Välj ett namn på grupprummet:");
+        string inputNamn = Console.ReadLine();
+
+        Console.WriteLine("Ange hur många platser salen har: ");
+        int.TryParse(Console.ReadLine(), out int kapacitet);
+
+        if (!string.IsNullOrEmpty(inputNamn))
+        {
+            Grupprum grupprum = new Grupprum(kapacitet, inputNamn);
+            Console.WriteLine($"Ditt nya grupprum har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
+        }
+        else
+            Console.WriteLine("Något gick fel försök igen.");
+    }
 }
 
 class Sal : Lokal //Fylla i egenskaper, namn och kapacitet (kanske något mer)
 {   
-    public string LokalNamn;
-    public DateTime Öppentider;
+    static int LokalID = 0;
+    public int Kapacitet;
+    public string SalNamn;
+    public Sal(int kapacitet, string salNamn)
+    {
+        LokalID++;
+        Kapacitet = kapacitet;
+        SalNamn = salNamn;
+    }
 }
 
 class Grupprum : Lokal //Fylla i egenskaper, namn och kapacitet (kanske något mer)
 {
+    static int LokalID = 0; //Namnet för lokalen som automatiskt tilldelas när man skapar ett nytt rum
+    public int Kapacitet;
+    public string GrupprumsNamn;
 
+    public Grupprum(int kapacitet, string grupprumsNamn)
+    {
+        LokalID++;
+        Kapacitet = kapacitet;
+        GrupprumsNamn = grupprumsNamn;
+    }
 }
 class NyBokning : IBookable//Klass metod för att göra ny bokning
 {
     public string Name;
     public string Lokal;
-    public DateTime Starttid;
-    public DateTime Sluttid;
+    public TimeOnly Starttid;
+    public TimeOnly Sluttid;
 
     public void BokaTid()
     {
