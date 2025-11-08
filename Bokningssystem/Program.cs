@@ -83,60 +83,6 @@ namespace Bokningssystem
             
             }
         }
-        public void SkapaNyLokal()
-        {
-            Console.WriteLine("Vilken typ av lokal vill du lägga till? (1-2).");
-
-            Console.WriteLine("[1]. Sal");
-            Console.WriteLine("[2]. Grupprum");
-            string input = Console.ReadLine();
-            if (int.TryParse(input, out int userChoice))
-            {
-                if (userChoice == 1)
-                {
-                    SkapaNySal();
-                }
-                else if (userChoice == 2)
-                {
-                    SkapaNyGrupprum();
-                }
-                else
-                {
-                    Console.WriteLine("Vänliga välj en siffra mellan (1-2)");
-                }
-            }
-        }
-        public void SkapaNySal()
-        {
-            Console.Write("Välj ett namn på salen:");
-            string inputNamn = Console.ReadLine();
-
-            Console.WriteLine("Ange hur många platser salen har: ");
-            int.TryParse(Console.ReadLine(), out int kapacitet);
-
-            if (!string.IsNullOrEmpty(inputNamn))
-            {
-                Sal sal = new Sal(kapacitet, inputNamn);
-            }
-            Console.WriteLine($"Din nya sal har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
-        }
-
-        public void SkapaNyGrupprum()
-        {
-            Console.Write("Välj ett namn på grupprummet:");
-            string inputNamn = Console.ReadLine();
-
-            Console.WriteLine("Ange hur många platser salen har: ");
-            int.TryParse(Console.ReadLine(), out int kapacitet);
-
-            if (!string.IsNullOrEmpty(inputNamn))
-            {
-                Grupprum grupprum = new Grupprum(kapacitet, inputNamn);
-                Console.WriteLine($"Ditt nya grupprum har skapats! \nNamn: {inputNamn}\nAntal platser: {kapacitet}");
-            }
-            else
-                Console.WriteLine("Något gick fel försök igen.");
-        }
     }
 }
 interface IBookable //interface för klasser som ska kunna bokas
