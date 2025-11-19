@@ -1,0 +1,20 @@
+[
+  {
+    "_lokalId": 0,
+    "Kapacitet": 20,
+    "GrupprumsNamn": "hej",
+    "Typ": "Grupprum"
+  },
+  {
+    "_lokalId": 0,
+    "Kapacitet": 49,
+    "GrupprumsNamn": "asokd",
+    "Typ": "Grupprum"
+  },
+  {
+    "_lokalId": 1,
+    "Kapacitet": 32,
+    "GrupprumsNamn": "jfkalsdnf",
+    "Typ": "Grupprum"
+  }
+]
