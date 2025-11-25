@@ -17,7 +17,7 @@
 
 
 
-            while (pickStartTime = true)
+            while (pickStartTime)
             {
                 Console.Clear();
                 Console.WriteLine("[0] Tillbaka");
@@ -71,8 +71,6 @@
                                     bokadTid = endTime - startTime; //Displays HH
 
                                     pickEndTime = false;
-
-
                                     ///////////////////////////////////// För tester ////////////////////////////////////////////
                                     Console.WriteLine($"Start tid: {startTime}");
                                     Console.WriteLine($"Slut tid: {endTime}");

@@ -1,8 +1,14 @@
 [
   {
     "_lokalId": 1,
-    "Kapacitet": 54,
-    "SalNamn": "salen",
+    "Kapacitet": 50,
+    "SalNamn": "Valen",
+    "Typ": "Sal"
+  },
+  {
+    "_lokalId": 2,
+    "Kapacitet": 40,
+    "SalNamn": "Bj\u00F6rnen",
     "Typ": "Sal"
   }
 ]

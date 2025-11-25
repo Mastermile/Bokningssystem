@@ -1,4 +1,4 @@
-﻿namespace Bokningssystem
+﻿namespace Bokningssystem //Halvt inkomplett
 {
     interface IBookable //interface för klasser som ska kunna bokas
     {

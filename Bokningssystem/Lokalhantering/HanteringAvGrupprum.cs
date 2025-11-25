@@ -2,12 +2,10 @@
 
 namespace Bokningssystem.Lokalhantering
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    public class HanteringAvGrupprum
+    
+    public class HanteringAvGrupprum //M.O
     {
-        private readonly string _filväg = @"C:\Users\maxen\Source\Repos\Bokningssystem\Bokningssystem\Grupprum.json";
+        private readonly string _filväg = @"C:\Users\maxen\Desktop\Bokningssystem\Bokningssystem\Bokningssystem\Grupprum.json";
         private List<Grupprum> _grupprum;
 
         public HanteringAvGrupprum() //Laddar in alla rum från filerna när programmet startar.
@@ -34,14 +32,14 @@ namespace Bokningssystem.Lokalhantering
             }
         }
        
-        public void LäggTillNyttGrupprum(Grupprum grupprum)
+        public void LäggTillNyttGrupprum(Grupprum grupprum) //Lägger till ett nytt grupprum objekt till listan och sparar till fil
         {
             _grupprum.Add(grupprum);
 
             SparaTillFilGrupprum();
         }
 
-        private void SparaTillFilGrupprum()
+        private void SparaTillFilGrupprum() //Sparar alla grupprum till fil
         {
             var jsonOptions = new JsonSerializerOptions
             {

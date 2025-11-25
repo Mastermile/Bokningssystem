@@ -1,20 +1,14 @@
 [
   {
-    "_lokalId": 0,
-    "Kapacitet": 20,
-    "GrupprumsNamn": "hej",
-    "Typ": "Grupprum"
-  },
-  {
-    "_lokalId": 0,
-    "Kapacitet": 49,
-    "GrupprumsNamn": "asokd",
-    "Typ": "Grupprum"
-  },
-  {
     "_lokalId": 1,
-    "Kapacitet": 32,
-    "GrupprumsNamn": "jfkalsdnf",
+    "Kapacitet": 14,
+    "GrupprumNamn": "Giraffen",
+    "Typ": "Grupprum"
+  },
+  {
+    "_lokalId": 2,
+    "Kapacitet": 16,
+    "GrupprumNamn": "Tigern",
     "Typ": "Grupprum"
   }
 ]

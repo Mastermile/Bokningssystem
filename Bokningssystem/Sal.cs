@@ -1,6 +1,6 @@
 ﻿namespace Bokningssystem
 {
-    public class Sal : Lokal //Fylla i egenskaper, namn och kapacitet (kanske något mer)
+    public class Sal : Lokal //M.O
     {
         private static int ID = 1; //Namnet för lokalen som automatiskt tilldelas när man skapar ett nytt rum
         public int _lokalId { get; set; }
@@ -8,7 +8,7 @@
         public string SalNamn { get; set; }
         public string Typ { get; set; }
 
-        public Sal() { }
+        public Sal() { } //Tom konstruktor för json serialisering
         public Sal(string typ, int kapacitet, string salNamn)
         {
             _lokalId = ID;

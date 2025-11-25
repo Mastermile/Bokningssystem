@@ -1,11 +1,12 @@
-﻿namespace Bokningssystem
+﻿namespace Bokningssystem //Inkomplett
 {
     class NyBokning : IBookable//Klass metod för att göra ny bokning
     {
-        public string Name;
-        public string Lokal;
+
         public TimeOnly Starttid;
         public TimeOnly Sluttid;
+        public TimeSpan BokadTid;
+
 
         public void BokaTid()
         {
